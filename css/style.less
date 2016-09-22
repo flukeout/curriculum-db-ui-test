@@ -1,0 +1,193 @@
+@primary: #d84060;
+@primary-dark: #aa2444;
+@link : #248fd1;
+
+a {
+  color: @link;
+}
+
+h1 {
+  color: @primary;
+  margin-bottom: .4em;
+}
+
+h2 {
+  color: rgba(0,0,0,.4);
+  font-weight: 400;
+  margin-bottom: 2em;
+}
+
+.search {
+  width: 500px;
+  border-bottom: solid 2px rgba(0,0,0,.1);
+}
+
+.filter-toggles {
+  padding: 20px 0;
+  position: relative;
+  left: 28px;
+
+  .label {
+    margin-right: 5px;
+  }
+
+  .filter-toggle {
+    user-select: none;
+    display: inline;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
+    font-weight: inherit;
+    margin: 0 1px;
+    padding: 8px 15px 7px 15px;
+    background: rgba(0,0,0,.1);
+    border-radius: 19px;
+    cursor: pointer;
+    position: relative;
+
+
+    &.filter-active {
+      background: #f9c5d2;
+      color: @primary-dark;
+    }
+
+    &.active {
+      background: @primary;
+      color: white;
+      animation: pop .15s ease-out;
+    }
+  }
+
+  .clear {
+    margin-left: 5px;
+    transition: opacity .2s ease-out;
+    opacity: 0;
+  }
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  outline: none;
+  font-size: inherit;
+  border: none;
+  font-weight: 300;
+}
+
+.filters {
+  background: rgba(0,0,0,.1);
+  padding: 24px 20px 24px 20px;
+  border-radius: 20px;
+  position: relative;
+  display: none;
+
+  &[show] {
+    display: block;
+  }
+
+
+  &[show=''] {
+    display: none;
+  }
+
+  &:after {
+    content: "";
+    width: 20px;
+    transform: rotate(45deg);
+    height: 20px;
+    position: absolute;
+    left: 50%;
+    top: -10px;
+    background: #e6e6e6;
+    transition: left .25s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+.filter {
+  position: relative;
+  display: none;
+
+  &[filter=duration]{
+    margin: 13px 0;
+  }
+
+  .c-skills {
+    margin-top: 18px;
+    padding-top: 25px;
+    border-top: solid 1px rgba(0,0,0,.1);
+  }
+
+
+  &.filter-active {
+    .filter-option {
+      color: rgba(0,0,0,.25);
+    }
+  }
+
+  .duration-slider {
+    width: 300px;
+    position: relative;
+    top: 4px;
+    margin: 0 10px;
+  }
+
+  .filter-option {
+    color: rgba(0,0,0,.6);
+    margin: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 8px 15px 7px 15px;
+    display: inline-block;
+    border-radius: 20px;
+    transition: background .15s ease-out;
+
+    &.active {
+      background: rgba(0,0,0,.05);
+      background: white;
+      color: rgba(0,0,0,.7);
+      font-weight: 400;
+      animation: pop .15s ease-out;
+    }
+  }
+}
+
+@keyframes pop {
+  0 {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+
+}
+
+
+[show=duration]:after {
+  left:271px;
+}
+
+[show=difficulty]:after {
+  left:370px;
+}
+
+[show=age]:after {
+  left: 475px;
+}
+
+[show=skills]:after {
+  left: 615px;
+}
+
+.dot {
+  background: @primary;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

@@ -1,0 +1,107 @@
+<html>
+  <head>
+    <title>A Prototype</title>
+    <link rel="icon" type="image/png" sizes="196x196" href="favicon.png">
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet/less" href="css/base.less" type="text/css">
+    <link rel="stylesheet/less" href="css/style.less" type="text/css">
+    <link rel="stylesheet" href="css/narrow.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,400i,500,700" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="196x196" href="images/favicon.png">
+
+    <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/hammer.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/jquery.hammer.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+
+    <script>
+      less = {
+        env: "development",
+        async: false,
+        fileAsync: false,
+        poll: 1000,
+        functions: {},
+        dumpLineNumbers: "comments",
+        relativeUrls: false,
+        rootpath: ":/a.com/"
+      };
+    </script>
+    <script src="js/less.js"></script>
+    <meta name="viewport" content="width=320, user-scalable=no">
+  </head>
+
+  <body>
+    <div class="page-wrapper">
+
+      <div class="centered">
+        <h1>Teaching Activities</h1>
+        <h2>Activities and lesson plans to get you started</h2>
+        <input class="search" placeholder="Search by topic, description or tag" type="text"/>
+
+        <div class="filter-toggles">
+          <span class="label">Filters</span>
+          <button for="duration" class="filter-toggle">Duration</button>
+          <button for="difficulty" class="filter-toggle">Difficulty</button>
+          <button for="age" class="filter-toggle">Age Range</button>
+          <button for="skills" class="filter-toggle"><span class="skill-count"></span> Web Literacy Skill<span class="plural">s</span></button>
+          <a href="#" class="clear">Reset</a>
+        </div>
+
+        <div class="filters">
+
+          <div filter="difficulty" class="filter">
+            <button class="filter-option">Beginner</a>
+            <button class="filter-option">Inermediate</a>
+            <button class="filter-option">Advanced</a>
+          </div>
+
+          <div filter="duration" class="filter">
+            <strong>Time to complete</strong>
+            <input type="range" class="duration-slider"/>
+            <span class="value">2-4 hours</span>
+          </div>
+
+          <div filter="skills" class="filter">
+            <button class="filter-option">Design</button>
+            <button class="filter-option">Code</button>
+            <button class="filter-option">Compose</button>
+            <button class="filter-option">Revise</button>
+            <button class="filter-option">Remix</button>
+            <button class="filter-option">Evaluate</button>
+            <button class="filter-option">Sythesize</button>
+            <button class="filter-option">Navigate</button>
+
+            <button class="filter-option">Search</button>
+            <button class="filter-option">Connect</button>
+            <button class="filter-option">Protect</button>
+            <button class="filter-option">Open Practice</button>
+            <button class="filter-option">Contribute</button>
+            <button class="filter-option">Share</button>
+
+            <div class="c-skills">
+              <strong>21st Century Skills</strong>
+              <button class="filter-option">Problem Solving</button>
+              <button class="filter-option">Communication</button>
+              <button class="filter-option">Creativity</button>
+              <button class="filter-option">Collaboration</button>
+            </div>
+
+          </div>
+
+          <div filter="age" class="filter">
+            <button class="filter-option">Kids</a>
+            <button class="filter-option">Teens</a>
+            <button class="filter-option">Adults</a>
+          </div>
+
+        </div>
+
+
+        <div>
+
+      </div>
+
+
+    </div>
+  </body>
+</html>
