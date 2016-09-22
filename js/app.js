@@ -49,10 +49,40 @@ $(document).ready(function(){
       $(".filter-toggle").removeClass("active");
       $(this).addClass("active");
       openFilter(type);
+      moveArrow();
     }
     return false;
   });
 });
+
+function moveArrow(){
+
+  var activePill = $(".filter-toggle.active");
+  var position = activePill.position();
+  var width = activePill.outerWidth();
+  $(".filters .arrow").css("left",position.left + 20 + width/2);
+
+
+  //
+  // [show=duration]:after {
+  //   left:271px;
+  // }
+  //
+  // [show=difficulty]:after {
+  //   left:370px;
+  // }
+  //
+  // [show=age]:after {
+  //   left: 475px;
+  // }
+  //
+  // [show=skills]:after {
+  //   left: 615px;
+  // }
+  //
+
+
+}
 
 function openFilter(type){
   $("[filter]").hide();
