@@ -20,24 +20,30 @@ function fakeSearch(){
   var filterCount = $(".filter-option.active").length;
   var textSearchLength = $(".search").val().length;
   $(".popular-topics, .search-results").css("opacity",0);
-  $(".popular-topics, .search-results").hide();
+
+  setTimeout(function(){
+    $(".popular-topics, .search-results").hide();
+  },200);
 
 
-  $(".search-faker").show();
+  $(".search-faker").show().css("opacity",0).width($(".search-faker").width());
   $(".search-faker").css("opacity",.95);
+
 
   setTimeout(function(){
     $(".activity-count").text(random);
     if(filterCount > 0 || textSearchLength > 0) {
-      $(".search-results").css("opacity",1).show();
+      $(".search-results").show().css("opacity",0).width($(".search-results").width());
+      $(".search-results").css("opacity",1);
     } else {
-      $(".popular-topics").css("opacity",1).show();
+      $(".popular-topics").show().css("opacity",0).width($(".popular-topics").width());
+      $(".popular-topics").css("opacity",1);
     }
-  },300);
+  },400);
 
   setTimeout(function(){
     $(".search-faker").css("opacity", 0);
-  },300);
+  },600);
 
   setTimeout(function(){
     $(".search-faker").hide();
@@ -49,7 +55,6 @@ $(document).ready(function(){
 
   updateSearchUI();
   showHideClear();
-  fakeSearch();
 
   // Add some search results
   for(var i = 0; i < 10; i++) {
@@ -60,7 +65,7 @@ $(document).ready(function(){
   }
 
   // Add fake popular topics
-  for(var i = 0; i < 10; i++) {
+  for(var i = 0; i < 9; i++) {
     var clone = $(".result-template-column").clone();
     $(".popular-topics .insert-here").append(clone);
     clone.removeClass("result-template-column");
@@ -124,10 +129,10 @@ $(document).ready(function(){
     $(".filter-active").removeClass("filter-active");
     $(".filter").hide();
     $(".filters").removeAttr("show");
-    fakeSearch();
     countSkills();
     showHideClear();
     closeFilters();
+    fakeSearch();
     return false;
   })
 
