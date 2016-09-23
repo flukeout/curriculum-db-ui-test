@@ -20,21 +20,29 @@ function fakeSearch(){
   var filterCount = $(".filter-option.active").length;
   var textSearchLength = $(".search").val().length;
   $(".popular-topics, .search-results").css("opacity",0);
+  $(".popular-topics, .search-results").hide();
+
+
+  $(".search-faker").show();
+  $(".search-faker").css("opacity",.95);
 
   setTimeout(function(){
     $(".activity-count").text(random);
     if(filterCount > 0 || textSearchLength > 0) {
-      $(".search-results").css("opacity",1);
+      $(".search-results").css("opacity",1).show();
     } else {
-      $(".popular-topics").css("opacity",1);
+      $(".popular-topics").css("opacity",1).show();
     }
-  },250)
-
-  $(".search-faker").css("opacity",.95);
+  },300);
 
   setTimeout(function(){
-    $(".search-faker").css("opacity",0);
-  },500)
+    $(".search-faker").css("opacity", 0);
+  },300);
+
+  setTimeout(function(){
+    $(".search-faker").hide();
+  },800);
+
 }
 
 $(document).ready(function(){
@@ -64,6 +72,22 @@ $(document).ready(function(){
     updateSearchUI();
     fakeSearch();
   })
+
+  $(".clear-search").on("click",function(){
+    $(".search-ui input").val("");
+
+    $(".active").removeClass("active");
+    $(".filter-active").removeClass("filter-active");
+    $(".filter").hide();
+    $(".filters").removeAttr("show");
+    fakeSearch();
+    countSkills();
+    showHideClear();
+    closeFilters();
+    updateSearchUI();
+    return false;
+  })
+
 
   $(".search-ui").on("click","a",function(){
     $(".search-ui input").val("");
