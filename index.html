@@ -36,15 +36,25 @@
       <div class="centered">
         <h1>Teaching Activities</h1>
         <h2>Activities and lesson plans to get you started</h2>
-        <input class="search" placeholder="Search by topic, description or tag" type="text"/>
+
+        <div class="search-ui">
+          <span class="input-wrapper">
+            <input class="search" placeholder="Search by topic, description or tag" type="text"/>
+            <a href="#">Clear</a>
+          </span>
+        </div>
 
         <div class="filter-toggles">
-          <span class="label">Filters</span>
+          <span class="label">Add Filters</span>
           <button for="duration" class="filter-toggle">Duration</button>
           <button for="difficulty" class="filter-toggle">Difficulty</button>
           <button for="age" class="filter-toggle">Age Range</button>
           <button for="skills" class="filter-toggle"><span class="skill-count"></span> Web Literacy Skill<span class="plural">s</span></button>
           <a href="#" class="clear">Reset</a>
+        </div>
+
+        <div class="arrow-wrapper">
+          <div class="arrow"></div>
         </div>
 
         <div class="filters">
@@ -85,7 +95,6 @@
               <button class="filter-option">Creativity</button>
               <button class="filter-option">Collaboration</button>
             </div>
-
           </div>
 
           <div filter="age" class="filter">
@@ -94,16 +103,69 @@
             <button class="filter-option">Adults</a>
           </div>
 
-          <div class="arrow"></div>
-
         </div>
-
-
-        <div>
-
       </div>
 
+      <div class="result-list-wrapper">
+        <div class="results">
+
+          <div class="popular-topics">
+            <h3>Popular Topics</h3>
+            <div class="insert-here"></div>
+          </div>
+
+          <div class="search-results">
+            <h3><span class="activity-count">12</span> Results</h3>
+            <div class="insert-here"></div>
+          </div>
+
+          <div class="search-faker">
+            <h1>Searching...</h1>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Sample result -->
+      <!-- ************************************************************************************ -->
+      <!-- ************************************************************************************ -->
+      <div class="result column result-template-column">
+        <div class="thumbnail"></div>
+        <h1 class="title"><a href="#">Collection Title</a></h1>
+
+        <div class="meta">
+          <span class="author">By <a href="#">Mozilla</a></span>
+        </div>
+
+        <p class="description">
+          This collection is great, it has awesome activities that you can try about various topics!
+        </p>
+      </div>
+
+
+      <div class="result list result-template-list">
+        <div class="thumbnail"></div>
+        <h1 class="title"><a href="#">This is the activity title</a></h1>
+
+        <div class="meta">
+          <span class="difficulty">Beginner</span>
+          <span class="duration">2 hours</span>
+          <span class="author">By <a href="#">Mozilla</a></span>
+        </div>
+
+        <p class="description">
+          Use Thimble to tell the next President of the United States what issues matter to you most. Create and then submit your own online letters, memes, quotes, and campaign posters as part of the National Writing Project’s Letters to the Next President 2.0 campaign.
+        </p>
+
+        <div class="tag-list"><strong>Web Lit Skills</strong> <a href="#">Design</a> <a href="#">Revise</a> <a href="#">Search</a></div>
+        <div class="tag-list"><strong>Tags</strong> <a href="#">tag</a> <a href="#">tagger</a> <a href="#">taggest</a></div>
+      </div>
+      <!-- ************************************************************************************ -->
+      <!-- ************************************************************************************ -->
+      <!-- End sample result -->
 
     </div>
   </body>
 </html>
+
+
