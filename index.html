@@ -49,7 +49,7 @@
           <button for="duration" class="filter-toggle">Duration</button>
           <button for="difficulty" class="filter-toggle">Difficulty</button>
           <button for="age" class="filter-toggle">Age Range</button>
-          <button for="skills" class="filter-toggle"><span class="skill-count"></span> Web Literacy Skill<span class="plural">s</span></button>
+          <button for="skills" class="filter-toggle">Web Literacy Skills</button>
           <a href="#" class="clear">Reset</a>
         </div>
 
@@ -67,8 +67,8 @@
 
           <div filter="duration" class="filter">
             <strong>Time to complete</strong>
-            <input type="range" class="duration-slider"/>
-            <span class="value">2-4 hours</span>
+            <input class="duration-slider" type="range" min="1" max="6" value="1" step="1" class="duration-slider"/>
+            <span class="value">Any Duration</span>
           </div>
 
           <div filter="skills" class="filter">

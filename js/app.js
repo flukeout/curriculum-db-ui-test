@@ -16,6 +16,11 @@ function getRandom(min, max){
 function fakeSearch(){
   // this is where we search, boys
   var random = getRandom(10,50);
+  var duration = false;
+
+  if($(".duration-slider").val() > 1) {
+    duration = true;
+  }
 
   var filterCount = $(".filter-option.active").length;
   var textSearchLength = $(".search").val().length;
@@ -32,7 +37,7 @@ function fakeSearch(){
 
   setTimeout(function(){
     $(".activity-count").text(random);
-    if(filterCount > 0 || textSearchLength > 0) {
+    if(filterCount > 0 || textSearchLength > 0 || duration) {
       $(".search-results").show().css("opacity",0).width($(".search-results").width());
       $(".search-results").css("opacity",1);
     } else {
@@ -73,6 +78,42 @@ $(document).ready(function(){
   }
 
 
+  $(".duration-slider").on("input",function(){
+    var val = parseInt($(this).val());
+    var label = $("[filter=duration] .value");
+    switch(val) {
+      case 1: label.text("Any duration");
+        break;
+      case 2: label.text("About 15 minutes");
+        break;
+      case 3: label.text("15 minutes to 1 hour");
+        break;
+      case 4: label.text("1 to 2 hours");
+        break;
+      case 5: label.text("2 to 4 hours");
+        break;
+      case 6: label.text("4 hours +");
+        break;
+      }
+
+
+      var filterContainer = $(this).closest(".filter");
+      var filterToggle = $(".filter-toggle[for=duration]");
+
+      if(val > 1) {
+        filterContainer.addClass("filter-active");
+        filterToggle.addClass("filter-active");
+      } else {
+        filterContainer.removeClass("filter-active");
+        filterToggle.removeClass("filter-active");
+      }
+
+      showHideClear();
+      fakeSearch();
+
+  });
+
+
   $(".search-ui").on("keyup","input",function(){
     updateSearchUI();
     fakeSearch();
@@ -85,8 +126,10 @@ $(document).ready(function(){
     $(".filter-active").removeClass("filter-active");
     $(".filter").hide();
     $(".filters").removeAttr("show");
+    $(".duration-slider").val(1);
+
+
     fakeSearch();
-    countSkills();
     showHideClear();
     closeFilters();
     updateSearchUI();
@@ -118,7 +161,6 @@ $(document).ready(function(){
       filterToggle.removeClass("filter-active");
     }
 
-    countSkills();
     showHideClear();
     fakeSearch();
     return false;
@@ -129,7 +171,7 @@ $(document).ready(function(){
     $(".filter-active").removeClass("filter-active");
     $(".filter").hide();
     $(".filters").removeAttr("show");
-    countSkills();
+
     showHideClear();
     closeFilters();
     fakeSearch();
@@ -170,13 +212,14 @@ function closeFilters(){
 
 }
 
-function moveArrow(){
 
+// Keeps arrow in sync with opened filter
+
+function moveArrow(){
   var activePill = $(".filter-toggle.active");
   var position = activePill.position();
   var width = activePill.outerWidth();
   $(".arrow-wrapper .arrow").css("left",position.left + 20 + width/2);
-
 }
 
 function openFilter(type){
@@ -191,25 +234,13 @@ function closeFilter(type){
 //Check if any filters are on...
 function showHideClear(){
   var count = $(".filter-option.active").length;
-  if(count > 0){
+  var duration = false;
+  $(".duration-slider").val() > 0 ? false : duration = true;
+
+  if(count > 0 || duration){
     $(".clear").css("opacity",1);
   } else {
     $(".clear").css("opacity",0);
   }
 }
 
-
-function countSkills(){
-  var numActive = $("[filter=skills] .filter-option.active").length;
-
-  $(".skill-count").text(numActive);
-  if(numActive == 0) {
-    $(".skill-count").text("");
-  }
-
-  if(numActive == 1) {
-    $(".plural").hide();
-  } else {
-    $(".plural").show();
-  }
-}
