@@ -126,6 +126,8 @@ $(document).ready(function(){
     $(".filter-active").removeClass("filter-active");
     $(".filter").hide();
     $(".filters").removeAttr("show");
+    $(".duration-slider").val(1);
+
 
     fakeSearch();
     showHideClear();
