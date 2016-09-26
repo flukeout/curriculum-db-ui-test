@@ -126,8 +126,6 @@ $(document).ready(function(){
     $(".filter-active").removeClass("filter-active");
     $(".filter").hide();
     $(".filters").removeAttr("show");
-    $(".duration-slider").val(1);
-
 
     fakeSearch();
     showHideClear();
@@ -171,6 +169,9 @@ $(document).ready(function(){
     $(".filter-active").removeClass("filter-active");
     $(".filter").hide();
     $(".filters").removeAttr("show");
+
+    $(".duration-slider").val(1);
+    $("[filter=duration] .value").text("Any duration");
 
     showHideClear();
     closeFilters();
@@ -235,7 +236,10 @@ function closeFilter(type){
 function showHideClear(){
   var count = $(".filter-option.active").length;
   var duration = false;
-  $(".duration-slider").val() > 0 ? false : duration = true;
+  if($(".duration-slider").val() > 1) {
+    duration = true;
+  }
+  console.log(duration);
 
   if(count > 0 || duration){
     $(".clear").css("opacity",1);
